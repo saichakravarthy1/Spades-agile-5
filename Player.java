@@ -9,7 +9,7 @@ public class Player {
 	int position;   //0 is south, 1 is west, 2 is north and 3 is east
 	int tricksTaken = 0;
 	int tricksBid = 0;
-	Card[] hand = new Card[13];
+	ArrayList<Card> hand = new ArrayList<Card>(13);
 	
 	//Use getter and setters for all the players.
 	
@@ -20,18 +20,64 @@ public class Player {
 	}
 	
 	public void addToHand(Card card){
-		this.hand[12] = card;
+		hand.add(card);
 	}
 	
 	public void removeFromHand(Card card){
+		hand.remove(card);
+	}
+	
+	public void orderHand()
+	{
+		ArrayList<Card> heartsInHand = new ArrayList<Card>(13);
+		ArrayList<Card> diamondsInHand = new ArrayList<Card>(13);
+		ArrayList<Card> spadesInHand = new ArrayList<Card>(13);
+		ArrayList<Card> clubsInHand = new ArrayList<Card>(13);
+		
+		for (Card a: hand)
+		{
+			switch(a.getSuit())
+			{
+				case Spades:
+				{
+					spadesInHand.add(a);
+					break;
+				}
+				case Hearts:
+				{
+					heartsInHand.add(a);
+					break;
+				}
+				case Clubs:
+				{
+					clubsInHand.add(a);
+					break;
+				}
+				case Diamonds:
+				{
+					diamondsInHand.add(a);
+					break;
+				}
+			}
+		}
+		
+		
 		
 	}
 	
-	public void deal(Player player1, Player player2, Player player3){
-		ArrayList<Card> deck = new ArrayList<Card>(52);
-		ArrayList<Card> dealDeck = new ArrayList<Card>(52);
-		
-		 Collections.shuffle(arrlist);
+	private ArrayList<Card> order(ArrayList<Card> hand)
+	{
+		for (int i = 0; i < hand.size(); i++)
+		{
+			for (int j = 0; j < hand.size(); j++)
+			{
+				
+			}
+		}
+	}
+	
+	private void swap()
+	{
 		
 	}
 }
